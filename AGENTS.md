@@ -28,3 +28,5 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Landing page motion (scroll/cursor parallax, reveals, tilt) runs from one rAF hook in src/components/site/useScrollFx.ts driven by data-parallax/data-mouse attributes and reveal classes; keeps effects cheap and centrally disabled for reduced motion.

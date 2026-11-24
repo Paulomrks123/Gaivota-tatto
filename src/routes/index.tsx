@@ -80,7 +80,7 @@ function Index() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="relative bg-background text-foreground">
+    <div className="relative overflow-x-clip bg-background text-foreground">
       {/* HEADER */}
       <header className="fixed inset-x-0 top-0 z-50">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 md:px-10">
@@ -198,7 +198,7 @@ function Index() {
           </div>
           <div className="relative md:col-span-7 md:pl-6">
             <figure className="mask-reveal relative overflow-hidden rounded-3xl">
-              <img data-parallax="-0.04" src={lounge.url} alt="Lounge do Gaivota Tattoo com sofá chesterfield, teto em LED azul e decoração" width={1600} height={900} loading="lazy" className="aspect-[4/5] w-full scale-110 object-cover md:aspect-[4/3]" />
+              <img src={lounge.url} alt="Lounge do Gaivota Tattoo com sofá chesterfield, teto em LED azul e decoração" width={1600} height={900} loading="lazy" className="aspect-[4/5] w-full object-cover md:aspect-[4/3]" />
               <figcaption className="glass absolute bottom-4 left-4 rounded-full px-4 py-2 text-xs">O lounge do estúdio · foto real</figcaption>
             </figure>
             <figure className="reveal-blur tilt surface-premium relative -mt-24 ml-auto w-3/5 rounded-3xl p-2 md:-mt-32 md:w-1/2">
