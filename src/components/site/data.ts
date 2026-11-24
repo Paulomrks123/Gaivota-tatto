@@ -2,8 +2,8 @@ export const BIZ = {
   name: "Gaivota Tattoo Estúdio",
   phoneDisplay: "(21) 99575-8470",
   phoneE164: "+5521995758470",
-  waDisplay: "(21) 99534-2856",
-  waNumber: "5521995342856", // shown with WhatsApp icon on the storefront sign
+  waDisplay: "(21) 99575-8470",
+  waNumber: "5521995758470", // owner-confirmed WhatsApp
   landline: "(21) 3674-6899",
   instagram: "https://www.instagram.com/gaivota.tattoo/",
   address: "Av. Roberto Silveira, 368 — Icaraí, Niterói - RJ, 24230-161",
