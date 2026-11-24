@@ -9,6 +9,7 @@ import lounge from "@/assets/gaivota_lounge.jpg.asset.json";
 import { BIZ, waLink, WA_DEFAULT } from "@/components/site/data";
 import { useScrollFx } from "@/components/site/useScrollFx";
 import { SplitText } from "@/components/site/SplitText";
+import { TattooCarousel } from "@/components/site/TattooCarousel";
 
 const TITLE = "Gaivota Tattoo Estúdio | Tatuagem e Piercing em Icaraí, Niterói";
 const DESC =
@@ -210,13 +211,15 @@ function Index() {
         </div>
       </section>
 
+      <TattooCarousel />
+
       {/* SERVIÇOS */}
       <section id="servicos" className="relative overflow-hidden bg-surface py-28 md:py-40">
         <div className="pointer-events-none absolute inset-0 opacity-60"><div className="aurora h-full w-full" /></div>
         <div className="relative mx-auto max-w-7xl px-5 md:px-10">
           <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
             <div>
-              <Eyebrow n="02">O que fazemos</Eyebrow>
+              <Eyebrow n="03">O que fazemos</Eyebrow>
               <SplitText className="mt-6 max-w-2xl font-display text-5xl leading-[0.92] md:text-7xl" parts={["Do primeiro rabisco ao", { em: "último retoque." }]} />
             </div>
             <a href={waLink("Olá! Vim pelo site e queria saber quais estilos vocês fazem.")} target="_blank" rel="noopener" className="reveal btn-chrome w-fit px-6 py-3 text-sm">Perguntar sobre estilos</a>
@@ -264,7 +267,7 @@ function Index() {
       <section id="processo" className="relative overflow-hidden py-28 md:py-40">
         <div data-parallax="-0.1" className="pointer-events-none absolute -right-20 top-10 w-[700px] text-cobalt/30"><Seagull animate={false} /></div>
         <div className="relative mx-auto max-w-7xl px-5 md:px-10">
-          <Eyebrow n="03">Como funciona</Eyebrow>
+          <Eyebrow n="04">Como funciona</Eyebrow>
           <SplitText className="mt-6 max-w-3xl font-display text-5xl leading-[0.92] md:text-7xl" parts={["Quatro passos,", { em: "sem pressa" }, "e sem surpresa."]} />
           <ol className="relative mt-20 grid gap-6 md:grid-cols-4">
             <span className="absolute left-0 right-0 top-8 hidden h-px bg-gradient-to-r from-transparent via-neon/60 to-transparent md:block" />
@@ -294,7 +297,7 @@ function Index() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,var(--neon),transparent_45%)] opacity-30" />
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 text-cream md:grid-cols-2 md:px-10">
           <div className="reveal">
-            <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-cream/80">04 — Quem já passou por aqui</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-cream/80">05 — Quem já passou por aqui</p>
             <p className="mt-4 font-display text-[clamp(6rem,18vw,14rem)] leading-none">{BIZ.rating}</p>
             <p className="text-lg text-cream/85">Nota média no Google, com {BIZ.reviews} avaliações públicas.</p>
             <a href={BIZ.maps} target="_blank" rel="noopener" className="btn-chrome mt-8 inline-flex items-center gap-2 px-6 py-3 text-sm">Ler avaliações no Google <ArrowUpRight size={16} /></a>
@@ -313,7 +316,7 @@ function Index() {
 
       {/* FAQ */}
       <section id="faq" className="mx-auto max-w-4xl px-5 py-28 md:py-40">
-        <Eyebrow n="05">Dúvidas</Eyebrow>
+        <Eyebrow n="06">Dúvidas</Eyebrow>
         <SplitText className="mt-6 font-display text-5xl md:text-7xl" parts={["Antes de", { em: "marcar." }]} />
         <div className="mt-12 space-y-3">
           {[
@@ -371,7 +374,7 @@ function Index() {
         <footer className="relative z-10 border-t border-border">
           <div className="mx-auto flex max-w-7xl flex-col justify-between gap-3 px-5 py-8 text-sm text-muted-foreground md:flex-row md:px-10">
             <span>© {new Date().getFullYear()} Gaivota Tattoo Estúdio · Icaraí, Niterói - RJ</span>
-            <span>Fotos da fachada e do lounge: Google Maps. Demais imagens são ilustrativas.</span>
+            <span>Fotos da fachada e do lounge: Google Maps. Tatuagens: imagens enviadas. Demais imagens são ilustrativas.</span>
           </div>
         </footer>
       </section>
