@@ -227,6 +227,10 @@ a, button { -webkit-tap-highlight-color: transparent; }
 ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 500ms; }
 
 @media (max-width: 767px) {
+  html, body, #root { width: 100%; max-width: 100%; overflow-x: clip; }
+  *, *::before, *::after { box-sizing: border-box; }
+  .grid > *, .reveal, .reveal-blur, .surface-premium { min-width: 0; max-width: 100%; }
+  .scroll-seagull { filter: drop-shadow(0 0 8px oklch(0.7 0.18 265 / 35%)); }
   body::before { background-size: 48px 48px; opacity: .08; }
   #topo { min-height: 100svh; }
   #topo > div[data-parallax="-0.05"] { padding-bottom: max(2.5rem, env(safe-area-inset-bottom)); }
