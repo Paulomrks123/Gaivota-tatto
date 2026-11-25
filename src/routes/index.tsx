@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowUpRight, MapPin, Clock, Phone, Star, Menu, X, MessageCircle, Instagram, Sparkles, ShieldCheck, PenTool, HeartHandshake } from "lucide-react";
 import hero from "@/assets/hero-tattoo.jpg";
 import fineline from "@/assets/fineline.jpg";
@@ -77,12 +77,53 @@ function Eyebrow({ n, children }: { n: string; children: string }) {
   );
 }
 
+
+function ScrollSeagulls() {
+  const [progress, setProgress] = useState(0);
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let frame = 0;
+    const update = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const distance = document.documentElement.scrollHeight - window.innerHeight;
+        setProgress(distance > 0 ? Math.min(1, Math.max(0, window.scrollY / distance)) : 0);
+      });
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+  const birds = [
+    { left: "7%", offset: "-12px", size: "w-9", rotate: "-12deg" },
+    { left: "27%", offset: "8px", size: "w-7", rotate: "8deg" },
+    { left: "68%", offset: "-5px", size: "w-10", rotate: "-5deg" },
+    { left: "89%", offset: "13px", size: "w-8", rotate: "12deg" },
+  ];
+  return (
+    <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-[35] overflow-hidden">
+      {birds.map((bird, index) => (
+        <div key={index} className={`scroll-seagull absolute text-neon ${bird.size}`}
+          style={{ left: bird.left, top: `calc(${8 + progress * 78}% + ${bird.offset})`, transform: `rotate(${bird.rotate})`, opacity: 0.28 }}>
+          <Seagull animate={false} className="w-full drop-shadow-[0_0_10px_rgba(110,150,255,0.45)]" />
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function Index() {
   useScrollFx();
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="relative overflow-x-clip bg-background text-foreground">
+    <div className="relative min-w-0 max-w-full overflow-x-clip bg-background text-foreground">
+      <ScrollSeagulls />
       {/* HEADER */}
       <header className="fixed inset-x-0 top-0 z-50">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 md:px-10">
@@ -235,7 +276,7 @@ function Index() {
               { n: "Tatuagem autoral", d: "O desenho é criado do zero a partir da sua ideia, referências e local do corpo. Você aprova antes da sessão.", img: sketch, span: "md:col-span-7", msg: "Olá! Quero criar uma tatuagem personalizada. Posso enviar minha ideia?" },
               { n: "Traço fino e minimalistas", d: "Peças delicadas e precisas — boas para a primeira tatuagem ou um detalhe discreto.", img: fineline, span: "md:col-span-5 md:mt-28", msg: "Olá! Tenho interesse em uma tatuagem pequena / fine line. Como funciona?" },
             ].map((s, i) => (
-              <article key={s.n} className={`reveal ${s.span}`} style={{ transitionDelay: `${i * 150}ms` }}>
+              <article key={s.n} className={`reveal min-w-0 max-w-full ${s.span}`} style={{ transitionDelay: `${i * 150}ms` }}>
                 <div className="tilt surface-premium group relative overflow-hidden rounded-3xl p-2">
                   <div className="overflow-hidden rounded-[1.3rem]">
                     <img src={s.img} alt={`${s.n} (imagem ilustrativa)`} width={800} height={1008} loading="lazy" className="aspect-[4/5] w-full object-cover transition duration-[1400ms] group-hover:scale-110 md:aspect-[5/4]" />
