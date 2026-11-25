@@ -12,7 +12,6 @@ const clock = (s: number) => {
 
 export function StudioVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const cardRef = useRef<HTMLElement>(null);
   const [playing, setPlaying] = useState(false);
   const [muted, setMuted] = useState(true);
   const [time, setTime] = useState(0);
@@ -46,23 +45,6 @@ export function StudioVideo() {
     if (!v.paused) setPlaying(true);
   }, []);
 
-  // Para a reprodução quando o vídeo sai da tela, economizando dados do visitante.
-  useEffect(() => {
-    const v = videoRef.current;
-    const card = cardRef.current;
-    if (!v || !card) return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        if (!entry || entry.isIntersecting) return;
-        if (!v.paused) v.pause();
-      },
-      { threshold: 0.15 },
-    );
-    io.observe(card);
-    return () => io.disconnect();
-  }, []);
-
   const seek = (value: number) => {
     const v = videoRef.current;
     if (!v || !Number.isFinite(v.duration) || v.duration <= 0) return;
@@ -71,15 +53,16 @@ export function StudioVideo() {
   };
 
   return (
-    <figure ref={cardRef} className="anim-fade-up mt-5 w-full md:mt-9" style={{ animationDelay: "1.9s" }}>
-      <div className="surface-premium w-full rounded-3xl p-2">
-        <div className="relative aspect-[700/1244] w-full overflow-hidden rounded-2xl bg-ink">
+    <figure className="anim-fade-up relative left-1/2 mt-5 w-screen max-w-none -translate-x-1/2 md:left-auto md:mt-9 md:w-full md:translate-x-0" style={{ animationDelay: "1.9s" }}>
+      <div className="surface-premium w-full rounded-none p-0 md:rounded-3xl md:p-2">
+        <div className="relative aspect-[700/1244] w-full overflow-hidden rounded-none bg-ink md:rounded-2xl">
           <video
             ref={videoRef}
             className="absolute inset-0 h-full w-full object-cover"
             src={clip.url}
             poster={poster.url}
-            preload="metadata"
+            preload="auto"
+            autoPlay
             playsInline
             loop
             muted
