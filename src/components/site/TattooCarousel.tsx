@@ -63,6 +63,14 @@ export function TattooCarousel() {
     };
   }, [emblaApi]);
 
+  useEffect(() => {
+    if (!emblaApi) return;
+    const autoplay = window.setInterval(() => {
+      if (!document.hidden) emblaApi.scrollNext();
+    }, 3500);
+    return () => window.clearInterval(autoplay);
+  }, [emblaApi]);
+
   return (
     <section id="trabalhos" aria-label="Portfólio de tatuagens" className="relative overflow-hidden py-28 md:py-36">
       <div data-parallax="-0.06" className="pointer-events-none absolute -right-48 top-0 h-[520px] w-[520px] rounded-full bg-cobalt/20 blur-[130px]" />
