@@ -416,7 +416,6 @@ function Index() {
             </div>
             <div className="mt-12 flex flex-col gap-4 border-t border-border pt-6 text-[11px] leading-5 text-muted-foreground md:flex-row md:items-center md:justify-between">
               <span>© {new Date().getFullYear()} Gaivota Tattoo Estúdio. Todos os direitos reservados.</span>
-              <span>Fotos da fachada e do lounge: Google Maps. Tatuagens: imagens enviadas. Demais imagens são ilustrativas.</span>
             </div>
           </div>
         </footer>
