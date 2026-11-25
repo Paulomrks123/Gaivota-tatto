@@ -230,7 +230,9 @@ a, button { -webkit-tap-highlight-color: transparent; }
   html, body, #root { width: 100%; max-width: 100%; overflow-x: clip; }
   *, *::before, *::after { box-sizing: border-box; }
   .grid > *, .reveal, .reveal-blur, .surface-premium { min-width: 0; max-width: 100%; }
-  .scroll-seagull { filter: drop-shadow(0 0 8px oklch(0.7 0.18 265 / 35%)); }
+  .scroll-seagull { color: #f5f2eb; opacity: .96; filter: drop-shadow(0 0 7px rgba(100, 150, 255, .9)) drop-shadow(0 0 16px rgba(245, 242, 235, .45)); }
+.scroll-seagull-shape { display: block; overflow: visible; animation: seagull-float 3.8s ease-in-out infinite; transform-origin: center; }
+@keyframes seagull-float { 0%, 100% { transform: translateY(0) rotate(-2deg) scale(1); } 50% { transform: translateY(-5px) rotate(2deg) scale(1.04); } }
   body::before { background-size: 48px 48px; opacity: .08; }
   #topo { min-height: 100svh; }
   #topo > div[data-parallax="-0.05"] { padding-bottom: max(2.5rem, env(safe-area-inset-bottom)); }
