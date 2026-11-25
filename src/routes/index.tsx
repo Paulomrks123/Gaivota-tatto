@@ -10,6 +10,7 @@ import { BIZ, waLink, WA_DEFAULT } from "@/components/site/data";
 import { useScrollFx } from "@/components/site/useScrollFx";
 import { SplitText } from "@/components/site/SplitText";
 import { TattooCarousel } from "@/components/site/TattooCarousel";
+import { StudioVideo } from "@/components/site/StudioVideo";
 
 const TITLE = "Gaivota Tattoo Estúdio | Tatuagem e Piercing em Icaraí, Niterói";
 const DESC =
@@ -159,6 +160,7 @@ function Index() {
               Ver o que fazemos <ArrowUpRight size={16} />
             </a>
           </div>
+          <StudioVideo />
           <a href={BIZ.maps} target="_blank" rel="noopener" className="anim-fade-up glass mt-10 inline-flex w-fit items-center gap-3 rounded-full px-5 py-3 text-sm" style={{ animationDelay: "1.7s" }}>
             <span className="flex text-neon">{Array.from({ length: 5 }).map((_, i) => <Star key={i} size={14} fill="currentColor" />)}</span>
             <span><strong>{BIZ.rating}</strong> no Google · {BIZ.reviews} avaliações</span>
