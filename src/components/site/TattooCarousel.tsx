@@ -2,20 +2,43 @@ import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { SplitText } from "@/components/site/SplitText";
-import leaoAntebraco from "@/assets/tattoo-leao-antibraco.jpg.asset.json";
-import tigreReferencia from "@/assets/tattoo-tigre-referencia.jpg.asset.json";
-import aguiaPanturrilha from "@/assets/tattoo-aguia-panturrilha.jpg.asset.json";
-import tigreColorido from "@/assets/tattoo-tigre-colorido.jpg.asset.json";
-import letteringPanturrilha from "@/assets/tattoo-lettering-panturrilha.jpg.asset.json";
-import leaoCoroa from "@/assets/tattoo-leao-coroa.jpg.asset.json";
+import jesusCruzBraco from "@/assets/tattoo-jesus-cruz-braco.jpg.asset.json";
+import dragaoCostas from "@/assets/tattoo-dragao-costas.jpg.asset.json";
+import leaoCrucificacao from "@/assets/tattoo-leao-crucificacao.jpg.asset.json";
+import samuraiCostas from "@/assets/tattoo-samurai-costas.jpg.asset.json";
+import zeusBraco from "@/assets/tattoo-zeus-braco.jpg.asset.json";
+import coroaDiamante from "@/assets/tattoo-coroa-diamante.jpg.asset.json";
+import floralSetembro from "@/assets/tattoo-floral-setembro.jpg.asset.json";
 
 const TATTOOS = [
-  { image: leaoAntebraco, alt: "Tatuagem de leão em preto e cinza no antebraço" },
-  { image: tigreReferencia, alt: "Tatuagem de tigre ao lado do desenho de referência" },
-  { image: aguiaPanturrilha, alt: "Tatuagem de águia na panturrilha ao lado do desenho de referência" },
-  { image: tigreColorido, alt: "Tatuagem colorida de tigre com uma rosa" },
-  { image: letteringPanturrilha, alt: "Tatuagem com frase religiosa na panturrilha" },
-  { image: leaoCoroa, alt: "Tatuagem de leão com coroa e cruz no antebraço" },
+  {
+    image: jesusCruzBraco,
+    alt: "Tatuagem em preto e cinza no braço com o rosto de Jesus de coroa de espinhos, cruz iluminada e um leão",
+  },
+  {
+    image: dragaoCostas,
+    alt: "Tatuagem de dragão oriental entre flores cobrindo as costas",
+  },
+  {
+    image: leaoCrucificacao,
+    alt: "Tatuagem realista de leão em preto e cinza com cena da crucificação no braço",
+  },
+  {
+    image: samuraiCostas,
+    alt: "Tatuagem de samurais, templo japonês e lua cheia cobrindo as costas",
+  },
+  {
+    image: zeusBraco,
+    alt: "Tatuagem de Zeus em preto e cinza fechando o braço, com padrões gregos no ombro",
+  },
+  {
+    image: coroaDiamante,
+    alt: "Tatuagem de coroa sobre um diamante no ombro, com a palavra fé em caligrafia abaixo",
+  },
+  {
+    image: floralSetembro,
+    alt: "Tatuagem fine line de ramo floral roxo com a palavra Setembro e a data 03.09 no antebraço",
+  },
 ];
 
 export function TattooCarousel() {
@@ -68,7 +91,7 @@ export function TattooCarousel() {
           className="reveal-blur mt-14 outline-none"
           role="region"
           aria-roledescription="carrossel"
-          aria-label="Seis imagens de tatuagens"
+          aria-label="Sete imagens de tatuagens"
           tabIndex={0}
           onKeyDown={(event) => {
             if (event.key === "ArrowLeft") { event.preventDefault(); scrollPrev(); }
@@ -90,15 +113,15 @@ export function TattooCarousel() {
                       <img
                         src={image.url}
                         alt={alt}
-                        width={324}
-                        height={720}
+                        width={810}
+                        height={1440}
                         loading="lazy"
                         draggable={false}
                         className="aspect-[9/16] w-full select-none object-cover"
                       />
                     </div>
                     <figcaption className="flex items-center justify-between px-3 py-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                      <span>Imagem enviada</span>
+                      <span>Trabalho enviado</span>
                       <span>{String(index + 1).padStart(2, "0")} / {String(TATTOOS.length).padStart(2, "0")}</span>
                     </figcaption>
                   </figure>
