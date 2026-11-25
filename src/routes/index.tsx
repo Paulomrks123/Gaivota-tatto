@@ -160,7 +160,6 @@ function Index() {
               Ver o que fazemos <ArrowUpRight size={16} />
             </a>
           </div>
-          <StudioVideo />
           <a href={BIZ.maps} target="_blank" rel="noopener" className="anim-fade-up glass mt-6 inline-flex w-fit items-center gap-3 rounded-full px-5 py-3 text-sm md:mt-10" style={{ animationDelay: "1.7s" }}>
             <span className="flex text-neon">{Array.from({ length: 5 }).map((_, i) => <Star key={i} size={14} fill="currentColor" />)}</span>
             <span><strong>{BIZ.rating}</strong> no Google · {BIZ.reviews} avaliações</span>
@@ -177,6 +176,10 @@ function Index() {
             )),
           )}
         </div>
+      </div>
+
+      <div className="relative z-10 bg-background pt-10 md:pt-16">
+        <StudioVideo />
       </div>
 
       {/* ESTÚDIO — fotos reais */}
