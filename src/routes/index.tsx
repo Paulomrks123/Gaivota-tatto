@@ -99,24 +99,48 @@ function ScrollSeagulls() {
       window.removeEventListener("resize", update);
     };
   }, []);
+
   const birds = [
-    { left: "7%", offset: "-12px", size: "w-9", rotate: "-12deg" },
-    { left: "27%", offset: "8px", size: "w-7", rotate: "8deg" },
-    { left: "68%", offset: "-5px", size: "w-10", rotate: "-5deg" },
-    { left: "89%", offset: "13px", size: "w-8", rotate: "12deg" },
+    { left: "5%", offset: "-10px", width: 62, rotate: "-12deg", delay: "0s" },
+    { left: "27%", offset: "12px", width: 48, rotate: "9deg", delay: "-1.4s" },
+    { left: "67%", offset: "-4px", width: 68, rotate: "-6deg", delay: "-2.2s" },
+    { left: "88%", offset: "15px", width: 54, rotate: "13deg", delay: "-0.8s" },
   ];
+
   return (
-    <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-[35] overflow-hidden">
+    <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-[60] overflow-hidden">
       {birds.map((bird, index) => (
-        <div key={index} className={`scroll-seagull absolute text-neon ${bird.size}`}
-          style={{ left: bird.left, top: `calc(${8 + progress * 78}% + ${bird.offset})`, transform: `rotate(${bird.rotate})`, opacity: 0.28 }}>
-          <Seagull animate={false} className="w-full drop-shadow-[0_0_10px_rgba(110,150,255,0.45)]" />
+        <div
+          key={index}
+          className="scroll-seagull absolute"
+          style={{
+            left: bird.left,
+            top: `calc(${5 + progress * 84}% + ${bird.offset})`,
+            width: bird.width,
+            height: bird.width * 0.5,
+            transform: `rotate(${bird.rotate})`,
+            transition: "top 180ms linear",
+          }}
+        >
+          <svg
+            viewBox="0 0 400 200"
+            className="scroll-seagull-shape h-full w-full"
+            style={{ animationDelay: bird.delay }}
+            fill="none"
+          >
+            <path
+              d="M12 126 C72 44 143 45 190 104 C196 112 198 116 200 117 C202 116 204 112 210 104 C257 45 328 44 388 126 C330 82 274 77 226 112 C214 121 207 130 200 139 C193 130 186 121 174 112 C126 77 70 82 12 126Z"
+              fill="currentColor"
+              stroke="currentColor"
+              strokeWidth="8"
+              strokeLinejoin="round"
+            />
+          </svg>
         </div>
       ))}
     </div>
   );
 }
-
 function Index() {
   useScrollFx();
   const [open, setOpen] = useState(false);
