@@ -78,76 +78,13 @@ function Eyebrow({ n, children }: { n: string; children: string }) {
 }
 
 
-function ScrollSeagulls() {
-  const [progress, setProgress] = useState(0);
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let frame = 0;
-    const update = () => {
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => {
-        const distance = document.documentElement.scrollHeight - window.innerHeight;
-        setProgress(distance > 0 ? Math.min(1, Math.max(0, window.scrollY / distance)) : 0);
-      });
-    };
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
-    return () => {
-      cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
-    };
-  }, []);
 
-  const birds = [
-    { left: "5%", offset: "-10px", width: 62, rotate: "-12deg", delay: "0s" },
-    { left: "27%", offset: "12px", width: 48, rotate: "9deg", delay: "-1.4s" },
-    { left: "67%", offset: "-4px", width: 68, rotate: "-6deg", delay: "-2.2s" },
-    { left: "88%", offset: "15px", width: 54, rotate: "13deg", delay: "-0.8s" },
-  ];
-
-  return (
-    <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-[60] overflow-hidden">
-      {birds.map((bird, index) => (
-        <div
-          key={index}
-          className="scroll-seagull absolute"
-          style={{
-            left: bird.left,
-            top: `calc(${5 + progress * 84}% + ${bird.offset})`,
-            width: bird.width,
-            height: bird.width * 0.5,
-            transform: `rotate(${bird.rotate})`,
-            transition: "top 180ms linear",
-          }}
-        >
-          <svg
-            viewBox="0 0 400 200"
-            className="scroll-seagull-shape h-full w-full"
-            style={{ animationDelay: bird.delay }}
-            fill="none"
-          >
-            <path
-              d="M12 126 C72 44 143 45 190 104 C196 112 198 116 200 117 C202 116 204 112 210 104 C257 45 328 44 388 126 C330 82 274 77 226 112 C214 121 207 130 200 139 C193 130 186 121 174 112 C126 77 70 82 12 126Z"
-              fill="currentColor"
-              stroke="currentColor"
-              strokeWidth="8"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </div>
-      ))}
-    </div>
-  );
-}
 function Index() {
   useScrollFx();
   const [open, setOpen] = useState(false);
 
   return (
     <div className="relative min-w-0 max-w-full overflow-x-clip bg-background text-foreground">
-      <ScrollSeagulls />
       {/* HEADER */}
       <header className="fixed inset-x-0 top-0 z-50">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 md:px-10">
