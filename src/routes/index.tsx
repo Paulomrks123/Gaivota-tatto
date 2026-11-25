@@ -143,16 +143,16 @@ function Index() {
           </div>
         </figure>
         {/* 5. tipografia */}
-        <div data-parallax="-0.05" className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-5 pb-14 pt-32 md:px-10 md:pb-20">
+        <div data-parallax="-0.05" className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-5 pb-10 pt-16 md:px-10 md:pb-16 md:pt-32">
           <div data-mouse="10" className="anim-glide mb-4 w-40 text-neon md:w-60"><Seagull /></div>
           <p className="anim-fade-up font-mono text-[11px] uppercase tracking-[0.35em] text-foreground/70" style={{ animationDelay: ".3s" }}>
             Tatuagem · Piercing · Icaraí, Niterói
           </p>
-          <SplitText as="h1" delay={400} className="is-in mt-4 max-w-4xl font-display text-[clamp(3rem,9vw,8.5rem)] leading-[0.88] tracking-tight" parts={["Sua ideia vira", { em: "traço." }, "O traço vira", { em: "história." }]} />
-          <p className="anim-fade-up mt-6 max-w-lg text-base text-foreground/75 md:text-lg" style={{ animationDelay: "1.3s" }}>
+          <SplitText as="h1" delay={400} className="is-in mt-4 max-w-4xl font-display text-[clamp(2.4rem,9vw,8.5rem)] leading-[0.88] tracking-tight" parts={["Sua ideia vira", { em: "traço." }, "O traço vira", { em: "história." }]} />
+          <p className="anim-fade-up mt-4 max-w-lg text-sm text-foreground/75 md:text-lg" style={{ animationDelay: "1.3s" }}>
             Desenhos personalizados, atendimento próximo e um lounge para você ficar à vontade, a poucas quadras da praia de Icaraí.
           </p>
-          <div className="anim-fade-up mt-8 flex flex-wrap items-center gap-3" style={{ animationDelay: "1.5s" }}>
+          <div className="anim-fade-up mt-6 flex flex-wrap items-center gap-3 md:mt-8" style={{ animationDelay: "1.5s" }}>
             <a href={waLink(WA_DEFAULT)} target="_blank" rel="noopener" className="btn-metal inline-flex items-center gap-2 px-7 py-4 font-bold">
               <MessageCircle size={18} /> Conversar sobre minha tattoo
             </a>
@@ -161,7 +161,7 @@ function Index() {
             </a>
           </div>
           <StudioVideo />
-          <a href={BIZ.maps} target="_blank" rel="noopener" className="anim-fade-up glass mt-10 inline-flex w-fit items-center gap-3 rounded-full px-5 py-3 text-sm" style={{ animationDelay: "1.7s" }}>
+          <a href={BIZ.maps} target="_blank" rel="noopener" className="anim-fade-up glass mt-6 inline-flex w-fit items-center gap-3 rounded-full px-5 py-3 text-sm md:mt-10" style={{ animationDelay: "1.7s" }}>
             <span className="flex text-neon">{Array.from({ length: 5 }).map((_, i) => <Star key={i} size={14} fill="currentColor" />)}</span>
             <span><strong>{BIZ.rating}</strong> no Google · {BIZ.reviews} avaliações</span>
           </a>
