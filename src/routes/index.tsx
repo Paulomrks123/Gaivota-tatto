@@ -376,10 +376,46 @@ function Index() {
             </div>
           </div>
         </div>
-        <footer className="relative z-10 border-t border-border">
-          <div className="mx-auto flex max-w-7xl flex-col justify-between gap-3 px-5 py-8 text-sm text-muted-foreground md:flex-row md:px-10">
-            <span>© {new Date().getFullYear()} Gaivota Tattoo Estúdio · Icaraí, Niterói - RJ</span>
-            <span>Fotos da fachada e do lounge: Google Maps. Tatuagens: imagens enviadas. Demais imagens são ilustrativas.</span>
+        <footer className="relative z-10 overflow-hidden border-t border-border bg-ink">
+          <div className="mx-auto max-w-7xl px-5 py-14 md:px-10 md:py-16">
+            <div className="grid gap-12 md:grid-cols-12 md:gap-8">
+              <div className="md:col-span-5">
+                <a href="#topo" aria-label="Gaivota Tattoo — voltar ao início" className="inline-flex items-center gap-4">
+                  <span className="grid h-14 w-14 place-items-center rounded-2xl border border-neon/30 bg-neon/5 text-neon">
+                    <Seagull animate={false} className="w-10" />
+                  </span>
+                  <span>
+                    <span className="block font-display text-2xl tracking-wide text-foreground">GAIVOTA <span className="text-neon">TATTOO</span></span>
+                    <span className="mt-1 block font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground">Estúdio · Icaraí, Niterói</span>
+                  </span>
+                </a>
+                <p className="mt-6 max-w-sm text-sm leading-7 text-muted-foreground">Arte na pele, cuidado em cada detalhe. Um espaço para transformar ideias em tatuagens únicas.</p>
+                <div className="mt-6 flex items-center gap-3">
+                  <a href={BIZ.instagram} target="_blank" rel="noopener" aria-label="Instagram do Gaivota Tattoo" className="grid h-10 w-10 place-items-center rounded-full border border-border text-foreground transition-colors hover:border-neon hover:text-neon"><Instagram size={17} /></a>
+                  <a href={BIZ.facebook} target="_blank" rel="noopener" aria-label="Facebook do Gaivota Tattoo" className="grid h-10 w-10 place-items-center rounded-full border border-border text-foreground transition-colors hover:border-neon hover:text-neon"><span className="font-semibold">f</span></a>
+                  <a href={waLink(WA_DEFAULT)} target="_blank" rel="noopener" aria-label="WhatsApp do Gaivota Tattoo" className="inline-flex h-10 items-center gap-2 rounded-full border border-neon/40 px-4 text-xs font-semibold text-neon transition-colors hover:bg-neon hover:text-ink"><MessageCircle size={15} /> Fale com a gente</a>
+                </div>
+              </div>
+              <div className="md:col-span-3">
+                <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.28em] text-neon">Navegação</p>
+                <ul className="space-y-3 text-sm text-muted-foreground">
+                  {NAV.map(([label, href]) => <li key={href}><a href={href} className="transition-colors hover:text-neon">{label}</a></li>)}
+                </ul>
+              </div>
+              <div className="md:col-span-4">
+                <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.28em] text-neon">Visite o estúdio</p>
+                <ul className="space-y-4 text-sm leading-6 text-muted-foreground">
+                  <li className="flex gap-3"><MapPin size={17} className="mt-1 shrink-0 text-neon" /><a href={BIZ.maps} target="_blank" rel="noopener" className="transition-colors hover:text-foreground">{BIZ.address}<span className="block text-xs text-muted-foreground">Icaraí · Niterói · RJ</span></a></li>
+                  <li className="flex gap-3"><Clock size={17} className="mt-1 shrink-0 text-neon" /><span>{BIZ.hours}</span></li>
+                  <li className="flex gap-3"><Phone size={17} className="mt-1 shrink-0 text-neon" /><a href={`tel:${BIZ.phoneE164}`} className="transition-colors hover:text-foreground">{BIZ.phoneDisplay}</a></li>
+                </ul>
+                <a href={BIZ.maps} target="_blank" rel="noopener" className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-neon transition-colors hover:text-foreground">Como chegar <ArrowUpRight size={14} /></a>
+              </div>
+            </div>
+            <div className="mt-12 flex flex-col gap-4 border-t border-border pt-6 text-[11px] leading-5 text-muted-foreground md:flex-row md:items-center md:justify-between">
+              <span>© {new Date().getFullYear()} Gaivota Tattoo Estúdio. Todos os direitos reservados.</span>
+              <span>Fotos da fachada e do lounge: Google Maps. Tatuagens: imagens enviadas. Demais imagens são ilustrativas.</span>
+            </div>
           </div>
         </footer>
       </section>
