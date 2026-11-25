@@ -71,9 +71,9 @@ export function StudioVideo() {
   };
 
   return (
-    <figure ref={cardRef} className="anim-fade-up mt-5 w-fit md:mt-9" style={{ animationDelay: "1.9s" }}>
-      <div className="surface-premium rounded-3xl p-2">
-        <div className="relative aspect-[700/1244] h-[260px] overflow-hidden rounded-2xl bg-ink md:h-[400px]">
+    <figure ref={cardRef} className="anim-fade-up mt-5 w-full md:mt-9" style={{ animationDelay: "1.9s" }}>
+      <div className="surface-premium w-full rounded-3xl p-2">
+        <div className="relative aspect-[700/1244] w-full overflow-hidden rounded-2xl bg-ink">
           <video
             ref={videoRef}
             className="absolute inset-0 h-full w-full object-cover"
